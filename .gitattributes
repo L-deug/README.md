@@ -1,2 +1,126 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+#tarea no1 
+-pseudocodigo 
+proceso conversion
+	Definir cm, resultado como real
+	Definir opcion como entero 
+	Definir unidad como cadena 
+	
+	escribir "ingrese la lomgitud en centimetros";
+	leer cm 
+	escribir "opciones de conversión";
+	escribir " 1 METROS";
+	Escribir " 2 YARDAS";
+	Escribir " 3 VARAS ";
+	Escribir " 4 PULGADAS";
+	Escribir " 5 PIES";
+	Leer opcion
+	si opcion = 1 entonces 
+		resultado =cm /100
+		unidad ="METROS"
+	sino 
+		si opcion = 2 entonces 
+			resultado = cm/ 91.44
+			unidad = "YARDAS"
+		SINO 
+			SI opcion =3 Entonces
+				resultado = cm /83.8235
+				unidad = "VARAS"
+			SINO 
+				SI OPCION = 4 Entonces
+					resultado = cm /2.54
+					unidad = "PULGADAS"
+				SINO 
+					SI OPCION = 5 Entonces
+						RESULTADO = cm/30.48
+						unidad = "PIES"
+					sino 
+						Escribir " opcion invalida"
+					FinSi
+				FinSi
+			FinSi
+		FinSi
+	FinSi
+					Escribir cm " CENTIMETROS SIN APROCIMADAMENTE " , resultado , " ",unidad," . "
+FinProceso
+ 
+ *c++*
+
+int main() {
+    double centimeters;
+    cout << "Ingrese la longitud en centimetros: ";
+    cin >> centimeters;
+
+    int choice;
+    cout << "Elija la unidad a la que desea convertir:" << endl;
+    cout << "1. Metros" << endl;
+    cout << "2. Yardas" << endl;
+    cout << "3. Varas" << endl;
+    cout << "4. Pulgadas" << endl;
+    cout << "5. Pies" << endl;
+    cout << "Ingrese su eleccion (1-5): ";
+    cin >> choice;
+
+    double result;
+
+    switch (choice) {
+        case 1:
+            result = centimeters / 100.0; // 1 metro = 100 centímetros
+            cout << "El resultado es: " << result << " metros." << endl;
+            break;
+        case 2:
+            result = centimeters / 91.44; // 1 yarda = 91.44 centímetros
+            cout << "El resultado es: " << result << " yardas." << endl;
+            break;
+        case 3:
+            result = centimeters / 50.0; // 1 vara = 50 centímetros
+            cout << "El resultado es: " << result << " varas." << endl;
+            break;
+        case 4:
+            result = centimeters / 2.54; // 1 pulgada = 2.54 centímetros
+            cout << "El resultado es: " << result << " pulgadas." << endl;
+            break;
+        case 5:
+            result = centimeters / 30.48; // 1 pie = 30.48 centímetros
+            cout << "El resultado es: " << result << " pies." << endl;
+            break;
+        default:
+            cout << "Opción no válida." << endl;
+    }
+
+    return 0;
+}
+
+python 
+def main():
+    centimeters = float(input("Ingrese la longitud en centímetros: "))
+    
+    print("Elija la unidad a la que desea convertir:")
+    print("1. Metros")
+    print("2. Yardas")
+    print("3. Varas")
+    print("4. Pulgadas")
+    print("5. Pies")
+    
+    choice = int(input("Ingrese su elección (1-5): "))
+    
+    if choice == 1:
+        result = centimeters / 100.0  # 1 metro = 100 centímetros
+        print("El resultado es:", result, "metros.")
+    elif choice == 2:
+        result = centimeters / 91.44  # 1 yarda = 91.44 centímetros
+        print("El resultado es:", result, "yardas.")
+    elif choice == 3:
+        result = centimeters / 50.0  # 1 vara = 50 centímetros
+        print("El resultado es:", result, "varas.")
+    elif choice == 4:
+        result = centimeters / 2.54  # 1 pulgada = 2.54 centímetros
+        print("El resultado es:", result, "pulgadas.")
+    elif choice == 5:
+        result = centimeters / 30.48  # 1 pie = 30.48 centímetros
+        print("El resultado es:", result, "pies.")
+    else:
+        print("Opción no válida.")
+
+if __name__ == "__main__":
+    main()
+	

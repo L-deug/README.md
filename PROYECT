@@ -1,1 +1,274 @@
+Triple de pitagoras:
+
+Seudocodigo:
+//Algoritmo para encontrar todos los numeros enteros menores a 500 que sean un triple de pitagoras (a^2+b^2=c^2)
+
+Algoritmo triple_de_pitagoras
+	definir lado1,lado2,hipotenusa Como Entero
+	
+	Para lado1<-1 Hasta 500 Con Paso 1 Hacer
+		Para lado2<-1 Hasta 500 Con Paso 1 Hacer
+			Para hipotenusa<-1 Hasta 500 Con Paso 1 Hacer
+				si lado1^2 + lado2^2 = hipotenusa^2 Entonces
+					Escribir  "Triple de Pitágoras: ",lado1 ",",lado2,"," hipotenusa;
+					Escribir "comprobacion: ",lado1^2, "+" lado2^2, "=" hipotenusa^2;
+				finsi
+			Fin Para
+		Fin Para
+	Fin Para
+		
+
+FinAlgoritmo
+
+
+C++
+//Algoritmo para mostrar todos los posibles numeros enteros menores a 501 que sean un triple de pitagoras perfecto
+//a^2 + b^2 = c^2 
+#include <iostream>
+using namespace std;
+int lado1,lado2,hipotenusa;
+int main() {
+    for (lado1 = 1; lado1 <= 500; lado1++) {
+        for (lado2 = 1; lado2 <= 500; lado2++) {
+            for (hipotenusa = 1; hipotenusa <= 500; hipotenusa++) {
+                if ((lado1 * lado1) + (lado2 * lado2) == (hipotenusa * hipotenusa)) {
+                    cout << "Triple de Pitágoras: " << lado1 << ", " << lado2 << ", " << hipotenusa << endl;
+                    cout << "Comprobacion: "<< lado1*lado1 <<" + "<< lado2*lado2<<" = "<<hipotenusa*hipotenusa<< endl;
+                }
+            }
+        }
+    }
+    return 0;
+}
+
+
+
+Python
+
+#Algoritmo para encontrar todos los numeros enteros menores a 501 que sean un triple de pitagoras (a^2+b^2=c^2)
+
+for lado1 in range(1, 501):
+    for lado2 in range(1, 501):
+        for hipotenusa in range(1, 501):
+            if lado1**2 + lado2**2 == hipotenusa**2:
+                print(f"Triple de Pitágoras: {lado1}, {lado2}, {hipotenusa}")
+                print(f"Comprobacion: {lado1**2} + {lado2**2} = {hipotenusa**2}")
+
+
+
+
+
+
+Documentacion:
+Triple de Pitagoras
+Este programa busca todos los enteros a, b y c que satisfacen la ecuación a^2 + b^2 = c^2 y que sean menores que 501.
+
+Explicacion del programa:
+
+Este programa recorre en tres bucles anidados todas las combinaciones posibles
+de enteros positivos menores o iguales que 500. En cada iteración, comprueba si la suma de los cuadrados de 'lado1' y 'lado2' es menor que 500.
+La suma de los cuadrados de "lado1" y "lado2" es igual al cuadrado de la "hipotenusa", según la ecuación de Pitágoras.
+Si se cumple la ecuación, se muestra el triple pitagórico hallado junto con la prueba.
+No se proporciona ninguna entrada directa. El programa trabaja con valores predefinidos.
+
+Caracteristicas:
+Este programa asume valores enteros positivos menores o iguales a 500 para "lado1", "lado2" e "hipotenusa".
+Los triples pitagóricos son los triples de los números enteros a, b y c que satisfacen la ecuación a^2 + b^2 = c^2.
+Los valores de "lado1", "lado2" e "hipotenusa" van de 1 a 500.
+Los resultados se muestran en la consola.
+
+Resultado:
+El programa mostrará los triples de Pitágoras perfectos menores a 501 junto con sus comprobaciones.
+
+
+Video Explicativo: https://youtu.be/RnYPREXxMPY
+
+
+JUEGO DE AHORCADO 
+c++
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int contadorErrores, intentosRestantes, longitudPalabra, x, error;
+    char letra;
+    string letrasCorrectas, palabraSecreta, palabraOculta;
+
+    cout << "Ingresa la palabra a adivinar: ";
+    cin >> palabraSecreta;
+
+    longitudPalabra = palabraSecreta.length();
+
+    for (x = 0; x < longitudPalabra; x++) {
+        palabraOculta += "_";
+    }
+
+    contadorErrores = 0;
+    intentosRestantes = 4;
+
+    while (contadorErrores < 4) {
+        cout << palabraOculta << endl;
+        cout << "Ingresa una letra: ";
+        cin >> letra;
+        error = 1;
+
+        for (x = 0; x < longitudPalabra; x++) {
+            if (letra == palabraSecreta[x]) {
+                if (palabraOculta[x] == '_') {
+                    letrasCorrectas += letra;
+                    palabraOculta[x] = letra;
+                    error = 0;
+                    cout << "Adivinaste una letra" << endl;
+                }
+            }
+        }
+
+        if (palabraOculta == palabraSecreta) {
+            cout << "Felicidades, has ganado el juego, la palabra era: " << palabraSecreta << endl;
+            break;
+        } else {
+            if (error == 1) {
+                contadorErrores++;
+            }
+
+            if (contadorErrores == 1) {
+                cout << "Te quedan 3 intentos" << endl;
+            } else if (contadorErrores == 2) {
+                cout << "Te quedan 2 intentos" << endl;
+            } else if (contadorErrores == 3) {
+                cout << "Te queda 1 intento" << endl;
+            } else if (contadorErrores == 4) {
+                cout << "AHORCADO, la palabra era: " << palabraSecreta << endl;
+            }
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+
+python
+def main():
+    contador_errores = 0
+    intentos_restantes = 4
+    palabra_oculta = []
+
+    palabra_secreta = input("Ingresa la palabra a adivinar: ")
+    longitud_palabra = len(palabra_secreta)
+
+    for _ in range(longitud_palabra):
+        palabra_oculta.append("_")
+
+    while contador_errores < 4:
+        print(" ".join(palabra_oculta))
+        letra = input("Ingresa una letra: ")
+        error = True
+
+        for x in range(longitud_palabra):
+            if letra == palabra_secreta[x]:
+                if palabra_oculta[x] == '_':
+                    palabra_oculta[x] = letra
+                    error = False
+                    print("Adivinaste una letra")
+                    break
+
+        if "".join(palabra_oculta) == palabra_secreta:
+            print(f"Felicidades, has ganado el juego, la palabra era: {palabra_secreta}")
+            break
+        else:
+            if error:
+                contador_errores += 1
+
+            if contador_errores == 1:
+                print("Te quedan 3 intentos")
+            elif contador_errores == 2:
+                print("Te quedan 2 intentos")
+            elif contador_errores == 3:
+                print("Te queda 1 intento")
+            elif contador_errores == 4:
+                print(f"AHORCADO, la palabra era: {palabra_secreta}")
+                break
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+pseint
+//Aplicacion para jugar ahorcado
+Algoritmo JuegoAhorcado
+//definir variables
+    Definir contadorErrores, intentosRestantes, longitudPalabra, x, error Como Entero
+    Definir letra Como Caracter
+    Definir letrasCorrectas, palabraSecreta, palabraOculta Como Cadena
+
+    Escribir "Ingresa la palabra a adivinar"
+    Leer palabraSecreta
+	
+    longitudPalabra = Longitud (palabraSecreta)
+//ciclo para
+    Para x = 1 Hasta longitudPalabra Con Paso 1 Hacer
+        palabraOculta = palabraOculta + "_"
+    FinPara
+	
+    contadorErrores = 0
+    intentosRestantes = 4
+//ciclo mientras
+    Mientras contadorErrores < 4 Hacer
+        Escribir palabraOculta
+        Escribir "Ingresa una letra"
+        Leer letra
+        error = 1
+//ciclo Para 
+        Para x = 1 Hasta longitudPalabra Con Paso 1 Hacer
+            Si letra == Subcadena(palabraSecreta, x, x) Entonces
+                Si Subcadena(palabraOculta, x, x) == "_" Entonces
+                    letrasCorrectas = letrasCorrectas + letra
+					palabraOculta = Subcadena(palabraOculta, 1, x - 1) + letra + Subcadena(palabraOculta, x + 1, longitudPalabra)
+                    error = 0
+					Escribir "Adivinaste una letra"
+                FinSi
+            FinSi
+        FinPara
+				
+        Si palabraOculta == palabraSecreta Entonces
+            Escribir "Felicidades has ganado el juego, la palabra era: " palabraSecreta  
+
+        SiNo
+            Si error == 1 Entonces
+                contadorErrores = contadorErrores + 1
+            FinSi
+			
+            Si contadorErrores == 1 Entonces
+                Escribir "Te quedan 3 intentos"
+            FinSi
+            Si contadorErrores == 2 Entonces
+				
+                Escribir "Te quedan 2 intentos"
+            FinSi
+            Si contadorErrores == 3 Entonces
+			
+                Escribir "Te quedan 1 intentos"
+            FinSi
+            Si contadorErrores == 4 Entonces
+                Escribir "AHORCADO, la palabra era: " palabraSecreta
+            FinSi
+        FinSi
+    FinMientras
+	
+FinAlgoritmo
+
+
+
+
+https://www.youtube.com/watch?v=cUSbISgDqEQ&ab_channel=EricAlexanderBarillasOrozco
+
+https://youtu.be/fIE-k-rIVJU?si=emj6gDYPL5xVHaIs
 
